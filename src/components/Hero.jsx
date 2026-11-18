@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from './Form';
-import PhoneMockup from './PhoneMockup';
+import PhoneMockup from './ArbitrageCard';
 
 const liveFeeds = [
   { profit: '12.3%', event: `football: FC Bayern Munich — Hertha BSC
