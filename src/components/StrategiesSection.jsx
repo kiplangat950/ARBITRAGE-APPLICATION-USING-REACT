@@ -1,6 +1,19 @@
 import React, { useState } from 'react';
 import Form from './Form';
 
+const liveFeeds = [
+  {
+    profit: '12.3%',
+    event: `football: FC Bayern Munich — Hertha BSC
+Both Score (BOTH TO SCORE
+                          YES .Highest: tipico  2.10
+                          NO.   Highest: 1xbet  2.4)`,
+  },
+  { profit: '3.2%', event: 'MLB: Mets at Cardinals (Run Line)' },
+  { profit: '2.9%', event: 'NBA: Heat at Nuggets (Total Points)' },
+  { profit: '4.1%', event: 'EPL: Chelsea vs Arsenal (Moneyline)' },
+];
+
 const calendarDays = [
   null, null, 15, 35, -26.7, 27, 35,
   33, 22, 46.1, 28, -11.2, 10, 18,
@@ -25,6 +38,19 @@ export default function StrategiesSection() {
           </div>
 
           <p className="strategy-footnote">7 days free. Cancel anytime.</p>
+
+          {/* Moved the 4 Arbitrage Feed boxes directly below "Proven strategies to win on Kalshi..." */}
+          <div className="feed-container" style={{ marginTop: '20px', marginBottom: '20px' }}>
+            {liveFeeds.map((feed, idx) => (
+              <div key={idx} className="simple-feed-box">
+                <p className="feed-title">● ARBITRAGE FEED</p>
+                <div className="feed-content">
+                  <span className="profit-highlight">{feed.profit}</span>
+                  <span className="feed-text">{feed.event}</span>
+                </div>
+              </div>
+            ))}
+          </div>
 
           {showLeadCard && (
             <div className="inbox-lead-card">
@@ -94,3 +120,5 @@ export default function StrategiesSection() {
     </section>
   );
 }
+
+

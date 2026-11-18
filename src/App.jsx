@@ -9,8 +9,12 @@ export default function App() {
   return (
     <div className="app-wrapper">
       <NavBar />
+      {}
       <Hero />
+
+      {}
       <StrategiesSection />
+
       <Footer />
     </div>
   );

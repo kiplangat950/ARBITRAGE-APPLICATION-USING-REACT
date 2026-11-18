@@ -15,7 +15,7 @@ const ArbitrageCard = () => {
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
           color: #ffffff;
           box-sizing: border-box;
-          margin: 20px auto;
+          margin: 0 auto;
         }
         .arb-card * {
           box-sizing: border-box;
@@ -137,7 +137,7 @@ const ArbitrageCard = () => {
           padding-bottom: 10px;
         }
         .bar-green {
-          background: linear-gradient(to top, rgba(84, 150, 143, 0.3), rgba(52, 211, 153, 0.8));
+          background: linear-gradient(to top, rgba(5, 150, 105, 0.3), rgba(52, 211, 153, 0.8));
           border-top: 1px solid rgba(110, 231, 183, 0.4);
         }
         .bar-red {
@@ -160,19 +160,15 @@ const ArbitrageCard = () => {
         .book-fd { background-color: #1493ff; }
         .book-fd svg { width: 14px; height: 14px; color: #ffffff; }
         .book-bet365 {
-          background-color: #1cb5d4;
+          background-color: #027b5b;
           font-family: Arial, Helvetica, sans-serif;
           font-size: 6.5px;
           font-weight: 900;
           letter-spacing: -0.04em;
           line-height: 1;
         }
-        .book-bet365 .bet-white {
-          color: #ffffff;
-        }
-        .book-bet365 .bet-yellow {
-          color: #ffdf1b;
-        }
+        .book-bet365 .bet-white { color: #ffffff; }
+        .book-bet365 .bet-yellow { color: #ffdf1b; }
         .arb-odds {
           font-size: 12px;
           font-weight: 500;
@@ -229,11 +225,11 @@ const ArbitrageCard = () => {
           $200 ON THE OVER, $300 ON THE UNDER
         </div>
 
-        {}
+        {/* Two-Column Comparison */}
         <div className="arb-grid">
           <div className="arb-divider" />
 
-          {}
+          {/* LEFT COLUMN: Over 0.5 wins */}
           <div className="arb-col">
             <div className="arb-outcome-label">
               <svg className="arb-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -270,7 +266,7 @@ const ArbitrageCard = () => {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Under 0.5 hits */}
+          {/* RIGHT COLUMN: Under 0.5 wins */}
           <div className="arb-col">
             <div className="arb-outcome-label">
               <svg className="arb-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -302,7 +298,7 @@ const ArbitrageCard = () => {
                     <span className="bet-yellow">365</span>
                   </div>
                 </div>
-                <span className="arb-odds">1.77</span>
+                <span className="arb-odds">1.77-Under</span>
               </div>
             </div>
           </div>
@@ -311,17 +307,17 @@ const ArbitrageCard = () => {
         {/* Footer Summary */}
         <div className="arb-footer">
           <div>
-            <div className="arb-footer-label">YOU WAGER</div>
+            <div className="arb-footer-label">You wager</div>
             <div className="arb-footer-val">$500</div>
           </div>
           <div>
-            <div className="arb-footer-label">YOU MAKE</div>
-            <div className="arb-footer-val">30-66 $</div>
+            <div className="arb-footer-label">You make</div>
+            <div className="arb-footer-val">$30–$66</div>
           </div>
         </div>
       </div>
-    </>
-  );
-};
 
+</>
+);
+};
 export default ArbitrageCard;
