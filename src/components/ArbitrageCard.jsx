@@ -198,7 +198,7 @@ const ArbitrageCard = () => {
       `}</style>
 
       <div className="arb-card">
-        {/* Header Section */}
+        
         <div className="arb-header">
           <div>
             <div className="arb-league">
@@ -220,22 +220,21 @@ const ArbitrageCard = () => {
           <span className="arb-badge">8.6% locked</span>
         </div>
 
-        {/* Wager Split Info */}
+        
         <div className="arb-split-info">
           $200 ON THE OVER, $300 ON THE UNDER
         </div>
 
-        {/* Two-Column Comparison */}
         <div className="arb-grid">
           <div className="arb-divider" />
 
-          {/* LEFT COLUMN: Over 0.5 wins */}
+          {}
           <div className="arb-col">
             <div className="arb-outcome-label">
               <svg className="arb-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              <span>Over 0.5 wins</span>
+              <span>Over 2.5 wins</span>
             </div>
             <div className="arb-outcome-profit">+30$</div>
 
@@ -266,13 +265,13 @@ const ArbitrageCard = () => {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Under 0.5 wins */}
+        
           <div className="arb-col">
             <div className="arb-outcome-label">
               <svg className="arb-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              <span>Under 0.5 wins</span>
+              <span>Under 2.5 wins</span>
             </div>
             <div className="arb-outcome-profit">+$66</div>
 
@@ -304,7 +303,7 @@ const ArbitrageCard = () => {
           </div>
         </div>
 
-        {/* Footer Summary */}
+        
         <div className="arb-footer">
           <div>
             <div className="arb-footer-label">You wager</div>

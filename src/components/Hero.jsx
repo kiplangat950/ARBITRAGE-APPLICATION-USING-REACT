@@ -25,7 +25,7 @@ export default function Hero() {
           overflow: hidden;
         }
         .hero-grid {
-          align-items: center !important;
+          align-items:right !important;
         }
         /* Top Live Pill Badge */
         .hero-eyebrow-badge {
