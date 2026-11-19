@@ -14,25 +14,37 @@ async function authAction({ request }) {
   const formData = await request.formData();
   const payload = Object.fromEntries(formData);
 
-  
-  if (payload.intent === 'sign-in' && payload.email) {
-    localStorage.setItem('rebel_user', JSON.stringify({ email: payload.email }));
-    window.dispatchEvent(new Event('auth-change'));
-  }
+  const endpoint = payload.intent === 'sign-in' ? 'users' : 'trials';
 
   try {
-    const res = await fetch('http://localhost:3001/${endpoint}', {
+    
+    const res = await fetch(`http://localhost:3001/${endpoint}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        ...payload,
+        loggedInAt: new Date().toISOString(),
+      }),
     });
 
+    if (!res.ok) {
+      throw new Error(`POST failed with status ${res.status}`);
+    }
+
     const data = await res.json();
-    alert(`Success (${payload.intent})! Logged in as ${payload.email || 'Trial User'}`);
+    console.log(`Successful POST to /${endpoint}:`, data);
+
+    // Only log the user in after the POST succeeds
+    if (payload.intent === 'sign-in' && payload.email) {
+      localStorage.setItem('rebel_user', JSON.stringify(data));
+      window.dispatchEvent(new Event('auth-change'));
+    }
+
     return data;
   } catch (err) {
-    alert(`Signed in locally (${payload.intent})`);
-    return { status: 'offline-ok', ...payload };
+    console.error(' POST Error:', err.message);
+    alert(`Request failed: ${err.message}. Check that json-server is running on port 3001.`);
+    return { error: err.message };
   }
 }
 

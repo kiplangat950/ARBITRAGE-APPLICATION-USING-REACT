@@ -1,15 +1,49 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T13:25:05.074Z",
+      "id": "3AyyoK0Fl50"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T13:25:43.423Z",
+      "id": "Q9cClQOP0rE"
+    }
+  ],
   "trials": [],
   "bookmakers": [
-    { "id": "betfair", "name": "Betfair", "limit": "Very High" },
-    { "id": "polymarket", "name": "Polymarket", "limit": "High" }
+    {
+      "id": "betfair",
+      "name": "Betfair",
+      "limit": "Very High"
+    },
+    {
+      "id": "polymarket",
+      "name": "Polymarket",
+      "limit": "High"
+    }
   ],
   "guides": [
-    { "id": "1", "slug": "arbitrage-101", "title": "Arbitrage Betting 101", "text": "Cover all outcomes for guaranteed profit." }
+    {
+      "id": "1",
+      "slug": "arbitrage-101",
+      "title": "Arbitrage Betting 101",
+      "text": "Cover all outcomes for guaranteed profit."
+    }
   ],
   "strategies": [
-    { "id": "1", "slug": "positive-ev", "title": "+EV Betting", "text": "Beat the closing line using sharp market odds." }
+    {
+      "id": "1",
+      "slug": "positive-ev",
+      "title": "+EV Betting",
+      "text": "Beat the closing line using sharp market odds."
+    }
   ],
-  "actions": []
+  "actions": [],
+  "$schema": "./node_modules/json-server/schema.json"
 }
