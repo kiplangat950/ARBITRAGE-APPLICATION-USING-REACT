@@ -1,0 +1,15 @@
+{
+  "users": [],
+  "trials": [],
+  "bookmakers": [
+    { "id": "betfair", "name": "Betfair", "limit": "Very High" },
+    { "id": "polymarket", "name": "Polymarket", "limit": "High" }
+  ],
+  "guides": [
+    { "id": "1", "slug": "arbitrage-101", "title": "Arbitrage Betting 101", "text": "Cover all outcomes for guaranteed profit." }
+  ],
+  "strategies": [
+    { "id": "1", "slug": "positive-ev", "title": "+EV Betting", "text": "Beat the closing line using sharp market odds." }
+  ],
+  "actions": []
+}

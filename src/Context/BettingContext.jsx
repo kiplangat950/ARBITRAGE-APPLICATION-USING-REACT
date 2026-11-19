@@ -19,7 +19,7 @@ export function BettingProvider({ children }) {
   ];
 
   const sendPost = async (actionType, payload) => {
-    const res = await fetch('https://typicode.com', {
+    const res = await fetch('http://localhost:3001/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: actionType, ...payload }),

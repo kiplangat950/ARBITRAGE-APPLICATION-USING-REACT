@@ -23,7 +23,7 @@ export default function BookmakerForm() {
 
   function handleBookieLogin(bookieName) {
     console.log(`Opening ${bookieName} login...`);
-    // Replace with your login modal trigger or external bookie URL
+    
   }
 
   return (
