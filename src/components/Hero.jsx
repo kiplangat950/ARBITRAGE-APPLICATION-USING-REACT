@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './Form';
+import BookmakerForm from './BookmakerForm';
 import ArbitrageCard from './ArbitrageCard';
 
 const partners = [
@@ -25,7 +26,7 @@ export default function Hero() {
           overflow: hidden;
         }
         .hero-grid {
-          align-items:right !important;
+          align-items: right !important;
         }
         /* Top Live Pill Badge */
         .hero-eyebrow-badge {
@@ -52,7 +53,7 @@ export default function Hero() {
         }
         /* Bookmakers Card below Trustpilot */
         .partner-statement-block {
-          margin-top: 24px !important;
+          margin-top: 18px !important;
           padding: 18px 20px !important;
           background-color: rgba(14, 21, 26, 0.85) !important;
           border: 1px solid rgba(14, 76, 189, 0.1) !important;
@@ -139,6 +140,9 @@ export default function Hero() {
               <span className="brand-label">Trustpilot</span>
             </div>
 
+            {/* Bookmaker Limits & ID Form right above "We work with betting companies..." */}
+            <BookmakerForm />
+
             <div className="partner-statement-block">
               <p className="statement-intro-text">
                 We work with betting companies and Exchanges that accept EV betting, Arbing, and provide high betting limits:
@@ -167,4 +171,3 @@ export default function Hero() {
     </>
   );
 }
-
