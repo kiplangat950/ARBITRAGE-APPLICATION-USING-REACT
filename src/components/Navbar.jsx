@@ -96,7 +96,7 @@ export default function NavBar() {
 
           {user ? (
             <>
-              <span style={{ color: '#34d399', fontSize: '13px', fontWeight: '600' }}>
+              <span style={{  fontSize: '13px', fontWeight: '600' }}>
                 {user.email}
               </span>
               <button type="button" className="btn-ghost" onClick={handleLogout}>

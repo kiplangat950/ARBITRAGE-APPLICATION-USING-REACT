@@ -1,180 +1,151 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function BookmakerForm() {
-  const [form, setForm] = useState({
-    sbobetLimit: '5000',
-    pinnacleLimit: '10000',
-  });
-  const [saved, setSaved] = useState(false);
+const API = 'http://localhost:3000/bookies';
 
-  function handleonChange(e) {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-    setSaved(false);
-  }
 
-  function handlesubmit(e) {
+const STORAGE_KEY = 'bookies_data';
+
+const defaultBookies = [
+  { id: '1', name: 'SBOBET', description: 'High Asian Handicap limits • Winners welcome', isLoggedIn: false },
+  { id: '2', name: 'Pinnacle', description: 'Min $1–$2, high dynamic limits peaking near kickoff', isLoggedIn: false },
+];
+
+export default function BookMakerForm() {
+  const [bookies, setBookies] = useState([]);
+  const [name, setName] = useState('');
+  const [desc, setDesc] = useState('');
+  const [editingId, setEditingId] = useState(null);
+
+  const saveLocal = (list) => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    setBookies(list);
+  };
+
+  // GET
+  useEffect(() => {
+    fetch(API)
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then(setBookies)
+      .catch(() => {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        setBookies(saved || defaultBookies);
+      });
+  }, []);
+
+  // POST
+  const addBookie = async (e) => {
     e.preventDefault();
-    console.log('Submitted bookmaker limits:', form);
-    setSaved(true);
-  }
+    if (!name.trim()) return;
+    const newItem = { id: Date.now().toString(), name, description: desc, isLoggedIn: false };
 
-  function handleBookieLogin(bookieName) {
-    console.log(`Opening ${bookieName} login...`);
-    
-  }
+    try {
+      const res = await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newItem),
+      });
+      if (!res.ok) throw new Error();
+      setBookies([...bookies, await res.json()]);
+    } catch {
+      saveLocal([...bookies, newItem]);
+    }
+    setName('');
+    setDesc('');
+  };
+
+  
+  const patchBookie = async (id, updates) => {
+    try {
+      const res = await fetch(`${API}/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updates),
+      });
+      if (!res.ok) throw new Error();
+      const updated = await res.json();
+      setBookies(bookies.map((b) => (b.id === id ? updated : b)));
+    } catch {
+      saveLocal(bookies.map((b) => (b.id === id ? { ...b, ...updates } : b)));
+    }
+    setEditingId(null);
+  };
+
+  // DELETE
+  const deleteBookie = async (id) => {
+    try {
+      const res = await fetch(`${API}/${id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error();
+      setBookies(bookies.filter((b) => b.id !== id));
+    } catch {
+      saveLocal(bookies.filter((b) => b.id !== id));
+    }
+  };
 
   return (
-    <>
-      <style>{`
-        .inline-bookie-form {
-          margin-top: 20px;
-          padding: 16px 20px;
-          background-color: rgba(14, 21, 26, 0.85);
-          border: 1px solid rgba(14, 76, 189, 0.2);
-          border-radius: 12px;
-          max-width: 600px;
-          width: 100%;
-          box-sizing: border-box;
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-          color: #e5e7eb;
-        }
-
-        .bookie-row {
-          display: grid;
-          grid-template-columns: 1.6fr 1fr auto;
-          gap: 10px;
-          align-items: center;
-        }
-
-        .bookie-info {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .bookie-info strong {
-          font-size: 13.5px;
-          color: #f9fafb;
-        }
-
-        .bookie-info small {
-          color: #9ca3af;
-          font-size: 11.5px;
-          line-height: 1.3;
-        }
-
-        .inline-bookie-form input {
-          padding: 8px 10px;
-          border-radius: 6px;
-          border: 1px solid #374151;
-          background: #111827;
-          color: #fff;
-          font-size: 13px;
-          width: 100%;
-          box-sizing: border-box;
-        }
-
-        .inline-bookie-form input:focus {
-          outline: none;
-          border-color:brown
-
-        }
-
-        .btn-bookie-login {
-          padding: 8px 14px;
-          background: transparent;
-          color: #474a49;
-          border: 1px solid #30a4e3;
-          border-radius: 6px;
-          font-size: 13px;
-          font-weight: 600;
-          cursor: pointer;
-          white-space: nowrap;
-          transition: background-color 0.18s ease, color 0.18s ease;
-        }
-
-        .btn-bookie-login:hover {
-          background: #108fb9;
-          color: #111827;
-        }
-
-        .btn-submit {
-          align-self: flex-end;
-          padding: 8px 16px;
-          background: #237bf6;
-          color: #111827;
-          font-weight: 700;
-          font-size: 13px;
-          border: none;
-          border-radius: 6px;
-          cursor: pointer;
-        }
-
-        @media (max-width: 640px) {
-          .bookie-row {
-            grid-template-columns: 1fr;
-          }
-          .btn-bookie-login,
-          .btn-submit {
-            width: 100%;
-          }
-        }
-      `}</style>
-
-      <form className="inline-bookie-form" onSubmit={handlesubmit}>
-        <div className="bookie-row">
-          <div className="bookie-info">
-            <strong>SBOBET</strong>
-            <small>High Asian Handicap limits • Winners welcome</small>
-          </div>
-          <input
-            type="number"
-            name="sbobetLimit"
-            placeholder="Max Stake ($)"
-            value={form.sbobetLimit}
-            onChange={handleonChange}
-            required
-          />
-          <button
-            type="button"
-            className="btn-bookie-login"
-            onClick={() => handleBookieLogin('SBOBET')}
-          >
-            Login
-          </button>
-        </div>
-
-        <div className="bookie-row">
-          <div className="bookie-info">
-            <strong>Pinnacle</strong>
-            <small>Min $1–$2, high dynamic limits peaking near kickoff</small>
-          </div>
-          <input
-            type="number"
-            name="pinnacleLimit"
-            placeholder="Max Stake ($)"
-            value={form.pinnacleLimit}
-            onChange={handleonChange}
-            required
-          />
-          <button
-            type="button"
-            className="btn-bookie-login"
-            onClick={() => handleBookieLogin('Pinnacle')}
-          >
-            Login
-          </button>
-        </div>
-
-        <button type="submit" className="btn-submit">
-          {saved ? '✓ Saved' : 'Save Limits'}
-        </button>
+    <div style={styles.card}>
+      <form onSubmit={addBookie} style={styles.form}>
+        <input
+          style={styles.input}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Bookie (e.g. PINNACLE)"
+          required
+        />
+        <input
+          style={{ ...styles.input, flex: 1 }}
+          value={desc}
+          onChange={(e) => setDesc(e.target.value)}
+          placeholder="Limits / Notes (e.g. HIGH)"
+        />
+        <button type="submit" style={styles.addBtn}>Add</button>
       </form>
-    </>
+
+      {bookies.map((b) => (
+        <div key={b.id} style={styles.row}>
+          <div>
+            {editingId === b.id ? (
+              <input
+                style={styles.input}
+                defaultValue={b.description}
+                onBlur={(e) => patchBookie(b.id, { description: e.target.value })}
+                autoFocus
+              />
+            ) : (
+              <>
+                <div style={styles.title}>{b.name}</div>
+                <div style={styles.desc} onClick={() => setEditingId(b.id)} title="Click to edit">
+                  {b.description || 'Click to add note'}
+                </div>
+              </>
+            )}
+            <button
+              type="button"
+              onClick={() => patchBookie(b.id, { isLoggedIn: !b.isLoggedIn })}
+              style={b.isLoggedIn ? styles.connectedBtn : styles.loginBtn}
+            >
+              {b.isLoggedIn ? 'Connected' : 'Login'}
+            </button>
+          </div>
+
+          <button type="button" onClick={() => deleteBookie(b.id)} style={styles.delBtn}>
+            Delete
+          </button>
+        </div>
+      ))}
+    </div>
   );
 }
+
+const styles = {
+  card: { background: '#0d111a', border: '1px solid #1e293b', borderRadius: '14px', padding: '20px', maxWidth: '540px', color: '#fff' },
+  form: { display: 'flex', gap: '8px', marginBottom: '20px' },
+  input: { background: '#141923', border: '1px solid #334155', borderRadius: '6px', padding: '8px 12px', color: '#fff', fontSize: '13px', outline: 'none' },
+  addBtn: { background: '#2563eb', color: '#fff', border: 'none', borderRadius: '6px', padding: '8px 16px', fontWeight: '600', cursor: 'pointer' },
+  row: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 0', borderTop: '1px solid #1e293b' },
+  title: { fontWeight: '700', fontSize: '14px' },
+  desc: { color: '#94a3b8', fontSize: '12px', marginTop: '2px', cursor: 'pointer' },
+  loginBtn: { marginTop: '10px', width: '200px', background: '#161c28', border: '1px solid #334155', color: '#cbd5e1', borderRadius: '6px', padding: '6px', fontSize: '12px', cursor: 'pointer' },
+  connectedBtn: { marginTop: '10px', width: '200px', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.4)', color: '#6ee7b7', borderRadius: '6px', padding: '6px', fontSize: '12px', cursor: 'pointer' },
+  delBtn: { background: 'rgba(244,63,94,0.12)', border: '1px solid rgba(244,63,94,0.3)', color: '#fb7185', borderRadius: '6px', padding: '6px 12px', fontSize: '12px', fontWeight: '600', cursor: 'pointer' },
+};
 

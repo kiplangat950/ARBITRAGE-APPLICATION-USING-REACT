@@ -37,7 +37,7 @@ export default function Hero() {
           border-radius: 9999px;
           background-color: rgba(142, 161, 1, 0.1);
           border: 1px solid rgba(159, 15, 157, 0.25);
-          color: #d6f414;
+          color: #48bbf1;
           font-size: 12px;
           font-weight: 600;
           letter-spacing: 0.04em;
@@ -140,7 +140,7 @@ export default function Hero() {
               <span className="brand-label">Trustpilot</span>
             </div>
 
-            {/* Bookmaker Limits & ID Form right above "We work with betting companies..." */}
+            {}
             <BookmakerForm />
 
             <div className="partner-statement-block">

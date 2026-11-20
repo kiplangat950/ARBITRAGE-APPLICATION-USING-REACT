@@ -13,9 +13,154 @@
       "intent": "sign-in",
       "loggedInAt": "2026-11-19T13:25:43.423Z",
       "id": "Q9cClQOP0rE"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T13:28:19.989Z",
+      "id": "-3IcSdwmsl0"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T14:54:29.877Z",
+      "id": "DxnREen__Ho"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T17:15:30.240Z",
+      "id": "2OqQFwPfXDE"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T18:08:32.503Z",
+      "id": "TykcqQ3MIoY"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T18:41:19.332Z",
+      "id": "Q364vvDIEAs"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T19:25:15.815Z",
+      "id": "_yKnRKpWbhw"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T19:25:58.720Z",
+      "id": "DmFSth_hb20"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T19:51:19.550Z",
+      "id": "Qq5T--OsEF0"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T20:18:33.702Z",
+      "id": "ogYHwch-f9w"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T20:18:51.109Z",
+      "id": "ZC5iGLM1XJk"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T20:28:50.957Z",
+      "id": "2fqPbX6i1pk"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T22:55:10.824Z",
+      "id": "G68Y9vyb-0Q"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T23:09:54.575Z",
+      "id": "bhXIWeW8_8Q"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T23:15:40.852Z",
+      "id": "8p7QPYshc-g"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-19T23:35:18.022Z",
+      "id": "paoRcBnnkUk"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-20T00:53:09.941Z",
+      "id": "ZpaSty_zGgs"
+    },
+    {
+      "email": "victor.kiplangat3@student.moringaschool.com",
+      "password": "4784858",
+      "intent": "sign-in",
+      "loggedInAt": "2026-11-20T00:53:39.278Z",
+      "id": "-UAJUAEt7_8"
     }
   ],
-  "trials": [],
+  "trials": [
+    {
+      "intent": "navbar-free-trial",
+      "loggedInAt": "2026-11-19T13:28:14.786Z",
+      "id": "RN4bHB0KMaM"
+    },
+    {
+      "intent": "navbar-free-trial",
+      "loggedInAt": "2026-11-19T13:28:17.186Z",
+      "id": "jsOKvUh_XvI"
+    },
+    {
+      "intent": "navbar-free-trial",
+      "loggedInAt": "2026-11-19T23:07:58.747Z",
+      "id": "bSOqj80QH68"
+    },
+    {
+      "intent": "navbar-free-trial",
+      "loggedInAt": "2026-11-19T23:08:00.146Z",
+      "id": "Ip1aP5Pa36w"
+    },
+    {
+      "intent": "navbar-free-trial",
+      "loggedInAt": "2026-11-19T23:08:00.980Z",
+      "id": "BCuO4FBzKbI"
+    }
+  ],
   "bookmakers": [
     {
       "id": "betfair",
@@ -45,5 +190,31 @@
     }
   ],
   "actions": [],
+  "bookies": [
+    {
+      "id": "aMtS3QFtsao",
+      "name": "PINNACLE",
+      "description": "YES",
+      "isLoggedIn": false
+    },
+    {
+      "id": "pg44rIMI7Sw",
+      "name": "BETIKA",
+      "description": "",
+      "isLoggedIn": false
+    },
+    {
+      "id": "f4pzb-MXUFs",
+      "name": "RT5F",
+      "description": "GYY",
+      "isLoggedIn": false
+    },
+    {
+      "id": "uUT5RMG_SW4",
+      "name": "CMD368",
+      "description": "THAILAND",
+      "isLoggedIn": false
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

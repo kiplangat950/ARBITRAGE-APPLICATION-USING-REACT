@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import BookmakerDetail from './components/BookmakerDetail';
 import GuideDetail from './components/GuideDetail';
 import StrategyDetail from './components/StrategyDetail';
+import LiveOdds from './components/LiveOdds';
 
 async function authAction({ request }) {
   const formData = await request.formData();
@@ -17,7 +18,6 @@ async function authAction({ request }) {
   const endpoint = payload.intent === 'sign-in' ? 'users' : 'trials';
 
   try {
-    
     const res = await fetch(`http://localhost:3001/${endpoint}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -34,7 +34,6 @@ async function authAction({ request }) {
     const data = await res.json();
     console.log(`Successful POST to /${endpoint}:`, data);
 
-    // Only log the user in after the POST succeeds
     if (payload.intent === 'sign-in' && payload.email) {
       localStorage.setItem('rebel_user', JSON.stringify(data));
       window.dispatchEvent(new Event('auth-change'));
@@ -42,7 +41,7 @@ async function authAction({ request }) {
 
     return data;
   } catch (err) {
-    console.error(' POST Error:', err.message);
+    console.error('POST Error:', err.message);
     alert(`Request failed: ${err.message}. Check that json-server is running on port 3001.`);
     return { error: err.message };
   }
@@ -65,6 +64,7 @@ const router = createBrowserRouter([
     action: authAction,
     children: [
       { index: true, element: <><Hero /><StrategiesSection /></> },
+      { path: 'scanner', element: <LiveOdds /> },
       { path: 'bookmakers/:bookmakerId', element: <BookmakerDetail /> },
       { path: 'learning/:topicSlug', element: <GuideDetail /> },
       { path: 'strategies/:strategySlug', element: <StrategyDetail /> },
@@ -79,4 +79,3 @@ export default function App() {
     </BettingProvider>
   );
 }
-

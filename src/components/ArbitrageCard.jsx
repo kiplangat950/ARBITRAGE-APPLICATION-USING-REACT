@@ -103,7 +103,6 @@ const ArbitrageCard = () => {
         .arb-outcome-profit {
           font-size: 24px;
           font-weight: 700;
-          color: #34d399;
           margin-top: 2px;
           margin-bottom: 24px;
         }
@@ -125,8 +124,8 @@ const ArbitrageCard = () => {
           font-weight: 500;
           margin-bottom: 6px;
         }
-        .text-green { color: #34d399; }
-        .text-red { color: #fb7185; }
+        .text-green { color: #35b865; }
+        .text-red { color: #49c022; }
         .arb-bar {
           width: 44px;
           border-top-left-radius: 6px;
@@ -137,7 +136,7 @@ const ArbitrageCard = () => {
           padding-bottom: 10px;
         }
         .bar-green {
-          background: linear-gradient(to top, rgba(5, 150, 105, 0.3), rgba(52, 211, 153, 0.8));
+          background: linear-gradient (to top, rgba(106, 216, 37, 0.3), rgba(158, 199, 54, 0.8));
           border-top: 1px solid rgba(110, 231, 183, 0.4);
         }
         .bar-red {
